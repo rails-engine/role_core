@@ -1,0 +1,32 @@
+<div class="section">
+  <div class="container">
+    <p content="content">
+      <%= link_to 'New user', new_user_path, class: 'button is-primary' %>
+    </p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td>
+            <% if current_user != user %>
+              <%= link_to 'Sign in', sign_in_as_path(user.id) %> |
+            <% end %>
+            <%= link_to 'Edit', edit_user_path(user) %> |
+            <%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

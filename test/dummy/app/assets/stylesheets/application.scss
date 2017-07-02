@@ -1,0 +1,42 @@
+@import "bulma/bulma";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  & nav.nav {
+    a.brand {
+      padding: 0.5rem 0.75em 0.5em 0;
+    }
+  }
+
+  & .main {
+    flex: 1;
+  }
+
+  & footer.footer {
+    padding: 3rem 1.5rem 3rem;
+  }
+}
+
+.section-header {
+  background-color:#fafafa;
+}
+
+.flash {
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 2.5;
+  background: $info;
+  color: $text-invert;
+  text-align: center;
+}
+
+#alert {
+  background: $danger;
+}

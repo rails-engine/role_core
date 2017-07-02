@@ -1,0 +1,35 @@
+<div class="section">
+  <div class="container">
+    <p content="content">
+      <%= link_to 'New project', new_project_path, class: 'button is-primary' %>
+    </p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>User</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.id %></td>
+          <td><%= project.title %></td>
+          <td><%= project.user&.name %></td>
+          <td>
+            <%= link_to 'Tasks', project_tasks_path(project) %> |
+            <% if can? :update, project %>
+              <%= link_to 'Edit', edit_project_path(project) %> |
+            <% end %>
+            <% if can? :destroy, project %>
+              <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'} %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

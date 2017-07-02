@@ -1,0 +1,22 @@
+<%= f.fields_for name, permissions do |ff| %>
+  <% if permissions.class.attribute_names_for_inlining.any? %>
+    <div class="field">
+      <label class="label">
+        <%= permissions.class.model_name.human %>
+      </label>
+
+      <p class="control">
+        <% permissions.class.attribute_names_for_inlining.each do |permission| %>
+          <%= ff.label permission, class: 'checkbox' do %>
+            <%= ff.check_box permission, class: 'checkbox' %>
+            <%= permissions.class.human_attribute_name(permission) %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <% permissions.class.attribute_names_for_nesting.each do |permission| %>
+    <%= render partial: "permissions", locals: {f: ff, name: permission, permissions: permissions.send(permission)} %>
+  <% end %>
+<% end %>

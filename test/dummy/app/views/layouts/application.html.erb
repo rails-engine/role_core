@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RBAC Core</title>
+
+  <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<%= render 'layouts/notice' %>
+<%= render 'layouts/alert' %>
+<%= render 'layouts/nav' %>
+
+<main class="main">
+  <%= content_for?(:content) ? yield(:content) : yield %>
+</main>
+
+<%= render 'layouts/footer' %>
+</body>
+</html>

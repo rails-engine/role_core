@@ -1,0 +1,32 @@
+<%= form_with(model: [project, task], local: true) do |f| %>
+  <% if task.errors.any? %>
+    <article class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(task.errors.count, "error") %> prohibited this form from being saved:
+        </p>
+      </div>
+      <div class="message-body">
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
+    </article>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, class: 'label' %>
+    <p class="control">
+      <%= f.text_field :title, id: :user_name, class: 'input', required: 'required' %>
+    </p>
+  </div>
+
+  <div class="field is-grouped">
+    <p class="control">
+      <%= f.submit class: 'button is-primary' %>
+    </p>
+    <p class="control">
+      <%= link_to 'Back', url_for(:back), class: 'button is-link' %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<%= form_with(model: role, local: true) do |f| %>
+  <% if role.errors.any? %>
+    <article class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(role.errors.count, "error") %> prohibited this form from being saved:
+        </p>
+      </div>
+      <div class="message-body">
+        <% role.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
+    </article>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, class: 'label' %>
+    <p class="control">
+      <%= f.text_field :name, id: :role_name, class: 'input', required: 'required' %>
+    </p>
+  </div>
+
+  <%= render partial: "permissions", locals: {f: f, name: :permissions_attributes, permissions: role.permissions} %>
+
+  <div class="field is-grouped">
+    <p class="control">
+      <%= f.submit class: 'button is-primary' %>
+    </p>
+    <p class="control">
+      <%= link_to 'Back', url_for(:back), class: 'button is-link' %>
+    </p>
+  </div>
+<% end %>
