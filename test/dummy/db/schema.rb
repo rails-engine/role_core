@@ -29,13 +29,12 @@ ActiveRecord::Schema.define(version: 20170705175121) do
   end
 
   create_table "role_assignments", force: :cascade do |t|
-    t.string "subjectable_type", null: false
-    t.integer "subjectable_id", null: false
+    t.integer "user_id", null: false
     t.integer "role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_id"], name: "index_role_assignments_on_role_id"
-    t.index ["subjectable_type", "subjectable_id"], name: "index_role_assignments_on_subjectable"
+    t.index ["user_id"], name: "index_role_assignments_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|

@@ -1,7 +1,7 @@
 class RoleAssignment < ApplicationRecord
-  belongs_to :subjectable, polymorphic: true
-  belongs_to :role, inverse_of: :assignments
+  belongs_to :user
+  belongs_to :role
 
   validates :role,
-            uniqueness: {scope: :subjectable}
+            uniqueness: {scope: :user}
 end
