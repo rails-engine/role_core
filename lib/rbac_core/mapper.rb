@@ -5,7 +5,7 @@ module RbacCore
       @set = set
     end
 
-    def permission(name, default = false, **options, &block)
+    def permission(name, default: false, **options, &block)
       @set.register_permission name, default, @constraints.merge(options), &block
       self
     end

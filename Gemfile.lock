@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rbac_core (0.0.3)
+    rbac_core (0.0.4)
       options_model (~> 0)
       rails (~> 5.0)
 
