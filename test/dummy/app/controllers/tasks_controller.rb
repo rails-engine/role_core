@@ -37,11 +37,7 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   def update
-    if can? :update, @task
-      authorize! :update, @task
-    else
-      authorize! :update_my_own, @task
-    end
+    authorize! :update, @task
 
     if @task.update(task_params)
       redirect_to project_tasks_url(@project), notice: 'Task was successfully updated.'

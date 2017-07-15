@@ -1,8 +1,11 @@
 class CanCanCanPermission < RbacCore::Permission
+  attr_reader :action
+
   def initialize(name, priority: 0, **options, &block)
     super
 
     @model = options.fetch(:model)
+    @action = options.fetch(:action) { name }
     @block = block
   end
 

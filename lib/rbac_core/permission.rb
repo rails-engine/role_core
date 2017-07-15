@@ -1,9 +1,9 @@
 module RbacCore
   class Permission
-    attr_reader :action, :priority
+    attr_reader :name, :priority
 
-    def initialize(action, priority: 0, **options, &block)
-      @action = action
+    def initialize(name, priority: 0, **options, &block)
+      @name = name
       @priority = priority
     end
 
