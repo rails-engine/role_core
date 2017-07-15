@@ -1,4 +1,4 @@
-class CanCanCanPermissionAdapter < RbacCore::PermissionAdapter
+class CanCanCanPermission < RbacCore::Permission
   def initialize(name, priority: 0, **options, &block)
     super
 

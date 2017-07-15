@@ -1,5 +1,5 @@
 module RbacCore
-  class PermissionAdapter
+  class Permission
     attr_reader :action, :priority
 
     def initialize(action, priority: 0, **options, &block)
@@ -16,7 +16,7 @@ module RbacCore
     end
 
     def ==(other)
-      unless other.is_a?(RbacCore::PermissionAdapter)
+      unless other.is_a?(RbacCore::Permission)
         return false
       end
 

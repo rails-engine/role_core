@@ -1,4 +1,4 @@
-RbacCore.permission_adapter_class = CanCanCanPermissionAdapter
+RbacCore.permission_class = CanCanCanPermission
 RbacCore.permission_set_class.draw do
   group :project, model: Project do
     permission :create, true

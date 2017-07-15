@@ -36,7 +36,7 @@ module RbacCore
         raise ArgumentError, "`name` can't be blank" if name.blank?
 
         attribute name, :boolean, default: default
-        registered_permissions[name] = RbacCore.permission_adapter_class.new name, options, &block
+        registered_permissions[name] = RbacCore.permission_class.new name, options, &block
       end
     end
   end

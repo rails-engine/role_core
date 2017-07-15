@@ -1,7 +1,7 @@
 require "rbac_core/engine"
 
 require "options_model"
-require "rbac_core/permission_adapter"
+require "rbac_core/permission"
 require "rbac_core/mapper"
 require "rbac_core/permission_set"
 
@@ -13,16 +13,16 @@ module RbacCore
       @permission_set_class ||= PermissionSet.derive "Global"
     end
 
-    def permission_adapter_class
-      @permission_adapter_class ||= PermissionAdapter
+    def permission_class
+      @permission_class ||= Permission
     end
 
-    def permission_adapter_class=(klass)
-      unless klass && klass < PermissionAdapter
-        raise ArgumentError, "#{klass} should be sub-class of #{PermissionAdapter}."
+    def permission_class=(klass)
+      unless klass && klass < Permission
+        raise ArgumentError, "#{klass} should be sub-class of #{Permission}."
       end
 
-      @permission_adapter_class = klass
+      @permission_class = klass
     end
   end
 end
