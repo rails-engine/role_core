@@ -12,6 +12,7 @@
         <th>Id</th>
         <th>Title</th>
         <th>User</th>
+        <th>Public?</th>
         <th></th>
       </tr>
       </thead>
@@ -21,8 +22,11 @@
           <td><%= project.id %></td>
           <td><%= project.title %></td>
           <td><%= project.user&.name %></td>
+          <td><%= project.is_public? ? "T" : "" %></td>
           <td>
-            <%= link_to 'Tasks', project_tasks_path(project) %> |
+            <% if can? :read, project %>
+              <%= link_to 'Tasks', project_tasks_path(project) %> |
+            <% end %>
             <% if can? :update, project %>
               <%= link_to 'Edit', edit_project_path(project) %> |
             <% end %>

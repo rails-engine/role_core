@@ -8,6 +8,8 @@ en:
         create: New project
         destroy: Destroy project
         update: Edit project
+        read: Read project
+        read_public: Read public project
       task:
         create: New task
         destroy: Destroy task

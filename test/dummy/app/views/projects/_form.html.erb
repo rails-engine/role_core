@@ -21,6 +21,15 @@
     </p>
   </div>
 
+  <div class="field">
+    <p class="control">
+      <label class="checkbox">
+        <%= f.check_box :is_public %>
+        <%= Project.human_attribute_name(:is_public) %>
+      </label>
+    </p>
+  </div>
+
   <div class="field is-grouped">
     <p class="control">
       <%= f.submit class: 'button is-primary' %>

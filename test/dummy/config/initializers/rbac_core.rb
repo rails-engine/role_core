@@ -4,6 +4,8 @@ RbacCore.permission_set_class.draw do
     permission :create, default: true
     permission :destroy
     permission :update
+    permission :read, priority: 1, default: true
+    permission :read_public, action: :read, is_public: true
   end
 
   group :task, model: Task do

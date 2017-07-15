@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
+    authorize! :read, @project
     @tasks = @project.tasks.all
   end
 
