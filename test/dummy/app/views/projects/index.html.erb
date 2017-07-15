@@ -1,8 +1,11 @@
 <div class="section">
   <div class="container">
     <p content="content">
-      <%= link_to 'New project', new_project_path, class: 'button is-primary' %>
+      <% if can? :create, Project %>
+        <%= link_to 'New project', new_project_path, class: 'button is-primary' %>
+      <% end %>
     </p>
+
     <table class="table">
       <thead>
       <tr>

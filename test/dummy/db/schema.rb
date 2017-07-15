@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170705175121) do
 
-  create_table "assignments", force: :cascade do |t|
-    t.string "subjectable_type", null: false
-    t.integer "subjectable_id", null: false
-    t.integer "role_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_assignments_on_role_id"
-    t.index ["subjectable_type", "subjectable_id"], name: "index_assignments_on_subjectable"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
@@ -36,6 +26,16 @@ ActiveRecord::Schema.define(version: 20170705175121) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "role_assignments", force: :cascade do |t|
+    t.string "subjectable_type", null: false
+    t.integer "subjectable_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_role_assignments_on_role_id"
+    t.index ["subjectable_type", "subjectable_id"], name: "index_role_assignments_on_subjectable"
   end
 
   create_table "tasks", force: :cascade do |t|

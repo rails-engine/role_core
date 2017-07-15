@@ -1,4 +1,4 @@
-class Assignment < ApplicationRecord
+class RoleAssignment < ApplicationRecord
   belongs_to :subjectable, polymorphic: true
   belongs_to :role, inverse_of: :assignments
 
