@@ -7,10 +7,10 @@ module RbacCore
     def permitted_permissions(include_nested: true)
       permissions = self.class.registered_permissions.slice(*permitted_permission_names).values
       if include_nested && nested_attributes.any?
-        permissions + nested_attributes.values.map(&:permitted_permissions).flatten!
-      else
-        permissions
-      end.sort_by(&:priority)
+        permissions.concat nested_attributes.values.map(&:permitted_permissions).flatten!
+      end
+
+      ComputedPermissions.new(permissions)
     end
 
     class << self

@@ -4,6 +4,7 @@ require "options_model"
 require "rbac_core/permission"
 require "rbac_core/mapper"
 require "rbac_core/permission_set"
+require "rbac_core/computed_permissions"
 
 require "rbac_core/concerns/models/role"
 

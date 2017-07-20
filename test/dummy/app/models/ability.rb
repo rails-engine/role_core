@@ -5,8 +5,6 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    user.permitted_permissions.each do |permission|
-      permission.call(self, user)
-    end
+    user.permitted_permissions.call(self, user)
   end
 end

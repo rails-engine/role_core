@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def permitted_permissions
-    roles.map(&:permitted_permissions).flatten.uniq.sort_by(&:priority)
+    roles.map(&:permitted_permissions).reduce(RbacCore::ComputedPermissions.new, &:concat)
   end
 end
