@@ -69,7 +69,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -173,4 +173,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

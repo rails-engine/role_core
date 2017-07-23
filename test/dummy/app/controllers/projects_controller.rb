@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :require_signed_in
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: %i[show edit update destroy]
 
   # GET /projects
   def index
@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     authorize! :create, @project
 
     if @project.save
-      redirect_to projects_url, notice: 'Project was successfully created.'
+      redirect_to projects_url, notice: "Project was successfully created."
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     authorize! :update, @project
 
     if @project.update(project_params)
-      redirect_to projects_url, notice: 'Project was successfully updated.'
+      redirect_to projects_url, notice: "Project was successfully updated."
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
     authorize! :destroy, @project
 
     @project.destroy
-    redirect_to projects_url, notice: 'Project was successfully destroyed.'
+    redirect_to projects_url, notice: "Project was successfully destroyed."
   end
 
   private

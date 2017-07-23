@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :require_signed_in
   before_action :set_project
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   # GET /tasks
   def index
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     authorize! :create, @task
 
     if @task.save
-      redirect_to project_tasks_url(@project), notice: 'Task was successfully created.'
+      redirect_to project_tasks_url(@project), notice: "Task was successfully created."
     else
       render :new
     end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
     authorize! :update, @task
 
     if @task.update(task_params)
-      redirect_to project_tasks_url(@project), notice: 'Task was successfully updated.'
+      redirect_to project_tasks_url(@project), notice: "Task was successfully updated."
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
-    redirect_to project_tasks_url(@project), notice: 'Task was successfully destroyed.'
+    redirect_to project_tasks_url(@project), notice: "Task was successfully destroyed."
   end
 
   private

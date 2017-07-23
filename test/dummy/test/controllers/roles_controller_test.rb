@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RolesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create role" do
-    assert_difference('Role.count') do
+    assert_difference("Role.count") do
       post roles_url, params: { role: { name: @role.name } }
     end
 
@@ -39,7 +39,7 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy role" do
-    assert_difference('Role.count', -1) do
+    assert_difference("Role.count", -1) do
       delete role_url(@role)
     end
 

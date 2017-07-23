@@ -1,5 +1,5 @@
 class RolesController < ApplicationController
-  before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_action :set_role, only: %i[show edit update destroy]
 
   # GET /roles
   def index
@@ -20,7 +20,7 @@ class RolesController < ApplicationController
     @role = Role.new(role_params)
 
     if @role.save
-      redirect_to roles_url, notice: 'Role was successfully created.'
+      redirect_to roles_url, notice: "Role was successfully created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class RolesController < ApplicationController
   # PATCH/PUT /roles/1
   def update
     if @role.update(role_params)
-      redirect_to roles_url, notice: 'Role was successfully updated.'
+      redirect_to roles_url, notice: "Role was successfully updated."
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   def destroy
     @role.destroy
-    redirect_to roles_url, notice: 'Role was successfully destroyed.'
+    redirect_to roles_url, notice: "Role was successfully destroyed."
   end
 
   private

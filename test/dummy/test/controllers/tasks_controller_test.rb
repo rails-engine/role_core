@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create task" do
-    assert_difference('Task.count') do
+    assert_difference("Task.count") do
       post tasks_url, params: { task: { project_id: @task.project_id, title: @task.title, user_id: @task.user_id } }
     end
 
@@ -39,7 +39,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy task" do
-    assert_difference('Task.count', -1) do
+    assert_difference("Task.count", -1) do
       delete task_url(@task)
     end
 
