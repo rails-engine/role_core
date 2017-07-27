@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  protected
+  private
 
   def current_user
     @_current_user ||=
