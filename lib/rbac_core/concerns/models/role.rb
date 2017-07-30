@@ -9,10 +9,6 @@ module RbacCore::Concerns
 
         delegate :permitted_permissions, to: :permissions
 
-        after_initialize do
-          self.permissions ||= ::RbacCore.permission_set_class
-        end
-
         serialize :permissions, RbacCore.permission_set_class
       end
 
