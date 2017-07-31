@@ -84,9 +84,9 @@ Style/SpaceBeforeBlockBraces:
 Style/SpaceInsideBlockBraces:
   Enabled: true
 
-# Use `{ a: 1 }` not `{a:1}`.
+# Use `{a: 1}` not `{ a:1 }`.
 Style/SpaceInsideHashLiteralBraces:
-  Enabled: true
+  Enabled: false
 
 Style/SpaceInsideParens:
   Enabled: true
