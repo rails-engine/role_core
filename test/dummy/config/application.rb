@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 
 # Pick the frameworks you want:
@@ -23,4 +25,3 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RbacCore.permission_class = CanCanCanPermission
 RbacCore.permission_set_class.draw do
   group :project, model: Project do

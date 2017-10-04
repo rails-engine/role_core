@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RolesController < ApplicationController
   before_action :set_role, only: %i[show edit update destroy]
 
@@ -42,13 +44,13 @@ class RolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_role
-      @role = Role.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_role
+    @role = Role.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def role_params
-      params.require(:role).permit(:name, permissions_attributes: {})
-    end
+  # Only allow a trusted parameter "white list" through.
+  def role_params
+    params.require(:role).permit(:name, permissions_attributes: {})
+  end
 end

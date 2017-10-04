@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RbacCore
   class Permission
     attr_reader :name, :priority

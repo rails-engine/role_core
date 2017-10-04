@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RbacCore
   class PermissionSet < OptionsModel::Base
     def permitted_permission_names

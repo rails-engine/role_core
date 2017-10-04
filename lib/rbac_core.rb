@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rbac_core/engine"
 
 require "options_model"

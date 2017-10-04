@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   before_action :require_signed_in
   before_action :set_project, only: %i[show edit update destroy]
@@ -50,13 +52,13 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def project_params
-      params.require(:project).permit(:title, :is_public)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def project_params
+    params.require(:project).permit(:title, :is_public)
+  end
 end

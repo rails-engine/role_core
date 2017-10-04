@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RbacCore
   class ComputedPermissions
     delegate :each, :map, :to_a, :to_ary, to: :@permissions

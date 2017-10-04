@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :roles, except: %i[show]
   resources :users, except: %i[show]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CanCanCanPermission < RbacCore::Permission
   attr_reader :action, :options
 

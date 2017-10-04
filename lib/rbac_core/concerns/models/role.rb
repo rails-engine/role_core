@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RbacCore::Concerns
   module Models
     module Role

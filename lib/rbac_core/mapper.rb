@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RbacCore
   class Mapper
     def initialize(set, **constraints) #:nodoc:

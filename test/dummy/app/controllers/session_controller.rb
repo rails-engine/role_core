@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionController < ApplicationController
   def sign_in_as
     session[:current_user_id] = params[:id]
