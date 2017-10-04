@@ -59,12 +59,6 @@ Run bundler
 $ bundle install
 ```
 
-Run yarn
-
-```sh
-$ test/dummy/bin/yarn
-```
-
 Preparing database
 
 ```sh

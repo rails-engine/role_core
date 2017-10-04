@@ -1,8 +1,0 @@
-{
-  "name": "dummy",
-  "private": true,
-  "dependencies": {
-    "bulma": "^0.4.2",
-    "jquery": "^3.2.1"
-  }
-}
