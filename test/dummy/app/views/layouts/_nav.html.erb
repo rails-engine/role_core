@@ -1,16 +1,16 @@
-<nav class="nav has-shadow">
+<nav class="navbar has-shadow">
   <div class="container">
-    <div class="nav-left">
-      <%= link_to 'RBAC Core', root_path, class: 'nav-item brand' %>
+    <div class="navbar-brand">
+      <%= link_to 'RBAC Core', root_path, class: 'navbar-item' %>
     </div>
-    <div class="nav-right nav-menu">
-      <%= link_to 'Home', root_path, class: "nav-item is-tab #{"is-active" if current_page?(root_path)}" %>
-      <%= link_to 'Users', users_path, class: "nav-item is-tab #{"is-active" if controller_name == "users"}" %>
-      <%= link_to 'Roles', roles_path, class: "nav-item is-tab #{"is-active" if %w(roles).include? controller_name}" %>
-      <%= link_to 'Projects', projects_path, class: "nav-item is-tab #{"is-active" if %w(projects tasks).include? controller_name}" %>
+    <div class="navbar-end">
+      <%= link_to 'Home', root_path, class: "navbar-item #{"is-active" if current_page?(root_path)}" %>
+      <%= link_to 'Users', users_path, class: "navbar-item #{"is-active" if controller_name == "users"}" %>
+      <%= link_to 'Roles', roles_path, class: "navbar-item #{"is-active" if %w(roles).include? controller_name}" %>
+      <%= link_to 'Projects', projects_path, class: "navbar-item #{"is-active" if %w(projects tasks).include? controller_name}" %>
 
       <% if current_user %>
-        <%= link_to "Sign out #{current_user.name}", sign_out_path, class: "nav-item is-tab", method: :delete %>
+        <%= link_to "Sign out #{current_user.name}", sign_out_path, class: "navbar-item", method: :delete %>
       <% end %>
     </div>
   </div>
