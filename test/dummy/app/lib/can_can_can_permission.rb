@@ -12,9 +12,9 @@ class CanCanCanPermission < RbacCore::Permission
     @block = block
   end
 
-  def call(context, user)
+  def call(context, *args)
     if block_attached?
-      context.can @action, @model, &@block.curry[user]
+      context.can @action, @model, &@block.curry[*args]
     else
       context.can @action, @model, @options
     end
