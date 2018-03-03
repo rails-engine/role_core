@@ -20,6 +20,18 @@ module RbacCore
         :rbac_core
       end
 
+      def permission_class
+        @permission_class || RbacCore.permission_class
+      end
+
+      def permission_class=(klass)
+        unless klass && klass < Permission
+          raise ArgumentError, "#{klass} should be sub-class of #{Permission}."
+        end
+
+        @permission_class = klass
+      end
+
       def draw(**constraints, &block)
         unless block_given?
           raise ArgumentError, "must provide a block"
@@ -38,7 +50,7 @@ module RbacCore
         raise ArgumentError, "`name` can't be blank" if name.blank?
 
         attribute name, :boolean, default: default
-        registered_permissions[name] = RbacCore.permission_class.new name, options, &block
+        registered_permissions[name] = permission_class.new name, options, &block
       end
     end
   end

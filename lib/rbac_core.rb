@@ -16,6 +16,14 @@ module RbacCore
       @permission_set_class ||= PermissionSet.derive "Global"
     end
 
+    def permission_set_class=(klass)
+      unless klass && klass < PermissionSet
+        raise ArgumentError, "#{klass} should be sub-class of #{PermissionSet}."
+      end
+
+      @permission_set_class = klass
+    end
+
     def permission_class
       @permission_class ||= Permission
     end
