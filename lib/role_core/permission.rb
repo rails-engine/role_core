@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RbacCore
+module RoleCore
   class Permission
     attr_reader :name, :priority
 
@@ -18,7 +18,7 @@ module RbacCore
     end
 
     def ==(other)
-      unless other.is_a?(RbacCore::Permission)
+      unless other.is_a?(RoleCore::Permission)
         return false
       end
 

@@ -1,4 +1,4 @@
-RBAC Core
+RoleCore
 ====
 
 A Rails engine providing essential industry of Role-based access control.
@@ -12,13 +12,13 @@ See demo for now.
 Add this line to your Gemfile:
 
 ```ruby
-gem 'rbac_core'
+gem 'role_core'
 ```
 
 Or you may want to include the gem directly from GitHub:
 
 ```ruby
-gem 'rbac_core', github: 'jasl-lab/rbac_core'
+gem 'role_core', github: 'jasl-lab/role_core'
 ```
 
 And then execute:
@@ -30,7 +30,7 @@ $ bundle
 Copy migrations
 
 ```sh
-$ bin/rails rbac_core:install:migrations
+$ bin/rails role_core:install:migrations
 ```
 
 Then do migrate
@@ -44,13 +44,13 @@ $ bin/rails db:migrate
 Clone the repository.
 
 ```sh
-$ git clone https://github.com/jasl/rbac_core.git
+$ git clone https://github.com/jasl/role_core.git
 ```
 
 Change directory
 
 ```sh
-$ cd rbac_core
+$ cd role_core
 ```
 
 Run bundler

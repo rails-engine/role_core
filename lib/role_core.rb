@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require "rbac_core/engine"
+require "role_core/engine"
 
 require "options_model"
-require "rbac_core/permission"
-require "rbac_core/mapper"
-require "rbac_core/permission_set"
-require "rbac_core/computed_permissions"
+require "role_core/permission"
+require "role_core/mapper"
+require "role_core/permission_set"
+require "role_core/computed_permissions"
 
-require "rbac_core/concerns/models/role"
+require "role_core/concerns/models/role"
 
-module RbacCore
+module RoleCore
   class << self
     def permission_set_class
       @permission_set_class ||= PermissionSet.derive "Global"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RbacCore.permission_class = CanCanCanPermission
-RbacCore.permission_set_class.draw do
+RoleCore.permission_class = CanCanCanPermission
+RoleCore.permission_set_class.draw do
   group :project, model: Project do
     permission :create, default: true
     permission :destroy

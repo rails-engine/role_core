@@ -13,7 +13,7 @@ require "rails/test_unit/railtie"
 require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
-require "rbac_core"
+require "role_core"
 
 module Dummy
   class Application < Rails::Application

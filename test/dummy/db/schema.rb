@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20170705175121) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
-  create_table "rbac_core_roles", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "permissions", default: "", null: false
-    t.string "type", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "role_assignments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "role_id", null: false
@@ -39,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170705175121) do
     t.datetime "updated_at", null: false
     t.index ["role_id"], name: "index_role_assignments_on_role_id"
     t.index ["user_id"], name: "index_role_assignments_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "permissions", default: "", null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|

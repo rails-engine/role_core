@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RbacCore
+module RoleCore
   class PermissionSet < OptionsModel::Base
     def permitted_permission_names
       attributes.select { |_, v| v }.keys
@@ -17,11 +17,11 @@ module RbacCore
 
     class << self
       def i18n_scope
-        :rbac_core
+        :role_core
       end
 
       def permission_class
-        @permission_class || RbacCore.permission_class
+        @permission_class || RoleCore.permission_class
       end
 
       def permission_class=(klass)

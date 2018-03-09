@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RbacCore::Concerns
+module RoleCore::Concerns
   module Models
     module Role
       extend ActiveSupport::Concern
@@ -11,7 +11,7 @@ module RbacCore::Concerns
 
         delegate :permitted_permissions, to: :permissions
 
-        serialize :permissions, RbacCore.permission_set_class
+        serialize :permissions, RoleCore.permission_set_class
       end
 
       def permissions_attributes=(value)

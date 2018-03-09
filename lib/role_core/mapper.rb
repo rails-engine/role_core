@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RbacCore
+module RoleCore
   class Mapper
     def initialize(set, **constraints) #:nodoc:
       @constraints = constraints

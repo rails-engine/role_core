@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module RbacCore
+module RoleCore
   class Engine < ::Rails::Engine
-    isolate_namespace RbacCore
+    isolate_namespace RoleCore
   end
 end

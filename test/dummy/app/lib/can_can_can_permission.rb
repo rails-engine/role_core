@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CanCanCanPermission < RbacCore::Permission
+class CanCanCanPermission < RoleCore::Permission
   attr_reader :action, :options
 
   def initialize(name, priority: 0, **options, &block)
