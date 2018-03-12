@@ -3,6 +3,8 @@ RoleCore
 
 A Rails engine providing essential industry of Role-based access control.
 
+<img width="550" alt="2018-03-12 10 12 21" src="https://user-images.githubusercontent.com/5518/37262401-e6c9d604-25dd-11e8-849d-7f7d923d5f18.png">
+
 ## Usage
 
 See demo for now.
@@ -18,7 +20,7 @@ gem 'role_core'
 Or you may want to include the gem directly from GitHub:
 
 ```ruby
-gem 'role_core', github: 'jasl-lab/role_core'
+gem 'role_core', github: 'rails-engine/role_core'
 ```
 
 And then execute:
@@ -44,7 +46,7 @@ $ bin/rails db:migrate
 Clone the repository.
 
 ```sh
-$ git clone https://github.com/jasl/role_core.git
+$ git clone https://github.com/rails-engine/role_core.git
 ```
 
 Change directory
