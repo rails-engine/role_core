@@ -18,7 +18,7 @@ gem 'role_core'
 Or you may want to include the gem directly from GitHub:
 
 ```ruby
-gem 'role_core', github: 'jasl-lab/role_core'
+gem 'role_core', github: 'rails-engine/role_core'
 ```
 
 And then execute:
@@ -44,7 +44,7 @@ $ bin/rails db:migrate
 Clone the repository.
 
 ```sh
-$ git clone https://github.com/jasl/role_core.git
+$ git clone https://github.com/rails-engine/role_core.git
 ```
 
 Change directory
