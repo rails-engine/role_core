@@ -3,6 +3,8 @@ RoleCore
 
 A Rails engine providing essential industry of Role-based access control.
 
+<img width="550" alt="2018-03-12 10 12 21" src="https://user-images.githubusercontent.com/5518/37262401-e6c9d604-25dd-11e8-849d-7f7d923d5f18.png">
+
 ## Usage
 
 See demo for now.
