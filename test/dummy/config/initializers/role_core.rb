@@ -2,7 +2,7 @@
 
 RoleCore.permission_class = CanCanCanPermission
 RoleCore.permission_set_class.draw do
-  group :project, model: Project do
+  group :project, model_name: "Project" do
     permission :create, default: true
     permission :destroy
     permission :update
@@ -10,7 +10,7 @@ RoleCore.permission_set_class.draw do
     permission :read_public, action: :read, is_public: true
   end
 
-  group :task, model: Task do
+  group :task, model_name: "Task" do
     permission :create, default: true
     permission :destroy
     permission :update, priority: 1

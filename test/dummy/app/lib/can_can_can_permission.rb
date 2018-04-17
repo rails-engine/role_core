@@ -6,9 +6,9 @@ class CanCanCanPermission < RoleCore::Permission
   def initialize(name, priority: 0, **options, &block)
     super
 
-    @model = options.fetch(:model)
-    @action = options.fetch(:action) { name }
-    @options = options.except(:model, :action)
+    @model = options[:model] || options.fetch(:model_name).constantize
+    @action = options[:action] || name
+    @options = options.except(:model, :model_name, :action)
     @block = block
   end
 
