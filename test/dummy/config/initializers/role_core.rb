@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-RoleCore.permission_class = CanCanCanPermission
+require "role_core/contrib/can_can_can_permission"
+RoleCore.permission_class = RoleCore::CanCanCanPermission
+
 RoleCore.permission_set_class.draw do
   group :project, model_name: "Project" do
     permission :create, default: true
