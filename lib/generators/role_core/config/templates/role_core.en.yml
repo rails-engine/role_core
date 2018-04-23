@@ -1,0 +1,20 @@
+en:
+  role_core:
+    models: # Defined by `group` place here
+#      project: Project
+#      task: Task
+    attributes:
+#      global: # Top-level permissions
+#        foo: Foo
+#        bar: Bar
+#      project:
+#        create: New project
+#        destroy: Destroy project
+#        update: Edit project
+#        read: Read project
+#        read_public: Read public project
+#      task:
+#        create: New task
+#        destroy: Destroy task
+#        update: Edit task
+#        update_my_own: Edit my own task

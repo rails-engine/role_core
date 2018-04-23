@@ -1,0 +1,2 @@
+Description:
+  The role_core:config generator creates RoleCore initializer and locale in the config directory.
