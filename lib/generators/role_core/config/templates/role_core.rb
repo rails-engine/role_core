@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 # Uncomment below if you want to integrate with CanCanCan
-# require "role_core/contrib/can_can_can_permission"
-# RoleCore.permission_class = RoleCore::CanCanCanPermission
+#
+#   require "role_core/contrib/can_can_can_permission"
+#   RoleCore.permission_class = RoleCore::CanCanCanPermission
 
 RoleCore.permission_set_class.draw do
   # Define permissions for the application. For example:
@@ -35,7 +36,8 @@ RoleCore.permission_set_class.draw do
   #     permission :destroy, model_name: 'Plan'
   #   end
   #
-  # That will transfer to CanCanCan's abilities (if user has these permissions):
+  # That will transfer to CanCanCan's abilities (if user has these permissions),
+  # the permission's name will be the action:
   #
   #   can :create, Project
   #   can :destroy, Plan
@@ -51,7 +53,7 @@ RoleCore.permission_set_class.draw do
   #
   # For CanCanCan's hash of conditions
   # (see https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities#hash-of-conditions)
-  # you can simply pass them as options arguments for `permission` even with block
+  # you can simply pass them as arguments for `permission` even with a block
   #
   #   group :task, model_name: "Task" do
   #     permission :read_public, is_public: true
@@ -65,4 +67,4 @@ RoleCore.permission_set_class.draw do
   #
   #   permission :read_public, action: :read, is_public: true
   #
-end.finalize! # Call `finalize!` to freezing the definition, that's an optional.
+end.finalize! # Call `finalize!` to freezing the definition, that's optional.

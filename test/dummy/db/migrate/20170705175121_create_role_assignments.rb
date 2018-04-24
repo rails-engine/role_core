@@ -3,10 +3,8 @@
 class CreateRoleAssignments < ActiveRecord::Migration[5.1]
   def change
     create_table :role_assignments do |t|
-      t.references :user, null: false, index: true
-      t.references :role, null: false, index: true
-
-      t.timestamps
+      t.references :user, foreign_key: true, null: false
+      t.references :role, foreign_key: true, null: false
     end
   end
 end
