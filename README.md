@@ -5,10 +5,6 @@ A Rails engine providing essential industry of Role-based access control.
 
 <img width="550" alt="2018-03-12 10 12 21" src="https://user-images.githubusercontent.com/5518/37262401-e6c9d604-25dd-11e8-849d-7f7d923d5f18.png">
 
-## Usage
-
-See demo for now.
-
 ## Installation
 
 Add this line to your Gemfile:
@@ -17,13 +13,7 @@ Add this line to your Gemfile:
 gem 'role_core'
 ```
 
-Or you may want to include the gem directly from GitHub:
-
-```ruby
-gem 'role_core', github: 'rails-engine/role_core'
-```
-
-And then execute:
+Then execute:
 
 ```sh
 $ bundle
@@ -40,6 +30,47 @@ Then do migrate
 ```sh
 $ bin/rails db:migrate
 ```
+
+Run config generator
+
+```sh
+$ bin/rails g role_core:config
+```
+
+Run model generator
+
+```sh
+$ bin/rails g role_core:model
+```
+
+## Getting Start
+
+### Define permissions
+
+Permissions are defined in `config/initializers/role_core.rb`,
+checking it to know how to define permissions.
+
+In addition, there also includes a directive about how to integrate with CanCanCan.
+
+### For a user who has single role
+
+TODO
+
+```sh
+$ bin/rails g migration AddRoleToUsers role:references
+```
+
+### For a user who has multiple roles
+
+TODO
+
+```sh
+$ bin/rails g model RoleAssignment user:references role:references
+```
+
+### Integrate with CanCanCan
+
+TODO
 
 ## Demo
 
