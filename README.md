@@ -57,11 +57,11 @@ checking it to know how to define permissions.
 
 In addition, there also includes a directive about how to integrate with CanCanCan.
 
-### Hook up to application
+### Hook application
 
-In order to obtain maximum customability, you need to hooking up role(s) to your user model by yourself.
+In order to obtain maximum customizability, you need to hooking up role(s) to your user model by yourself.
 
-#### For User who has single role
+#### User who has single role
 
 ##### Create `one-to-many` relationship between Role and User
 
@@ -77,7 +77,7 @@ Then do migrate
 $ bin/rails db:migrate
 ```
 
-Declare `a User belongs to a Role`
+Declare `a User belongs to a Role` association
 
 ```ruby
 class User < ApplicationRecord
@@ -87,7 +87,7 @@ class User < ApplicationRecord
 end
 ```
 
-Declare `a Role has many Users`
+Declare `a Role has many Users` association
 
 ```ruby
 class Role < RoleCore::Role
@@ -97,7 +97,7 @@ end
 
 ##### Check permission
 
-Permssions you've defined will translate to a virtual model (a Class which implemented ActiveModel interface),
+Permissions you've defined will translate to a virtual model (a Class which implemented ActiveModel interface),
 `permission` would be an attribute, `group` would be a nested virtual model (like ActiveRecord's `has_one` association).
 
 So you can simply check permission like:
@@ -128,7 +128,7 @@ user.permissions.project.read?
 
 _Keep in mind: fetching `role` will made a SQL query, you may need eager loading to avoid N+1 problem in some cases._
 
-#### For User who has multiple roles
+#### User who has multiple roles
 
 ##### Create `many-to-many` relationship between Role and User
 
@@ -144,7 +144,7 @@ Then do migrate
 $ bin/rails db:migrate
 ```
 
-Declare `a User has many Roles through RoleAssignments`
+Declare `a User has many Roles through RoleAssignments` association
 
 ```ruby
 class User < ApplicationRecord
@@ -155,7 +155,7 @@ class User < ApplicationRecord
 end
 ```
 
-Declare `a Role has many Users through RoleAssignments`
+Declare `a Role has many Users through RoleAssignments` association
 
 ```ruby
 class Role < RoleCore::Role
@@ -166,7 +166,7 @@ end
 
 ##### Check permission
 
-Permssions you've defined will translate to a virtual model (a Class which implemented ActiveModel interface),
+Permissions you've defined will translate to a virtual model (a Class which implemented ActiveModel interface),
 `permission` would be an attribute, `group` would be a nested virtual model (like ActiveRecord's `has_one` association).
 
 So you can simply check permission like:
@@ -231,11 +231,11 @@ You can check RoleCore's Demo (see below) for better understanding.
 ### Management UI
 
 See [RolesController in dummy app](https://github.com/rails-engine/role_core/blob/master/test/dummy/app/controllers/roles_controller.rb)
-and relates [view](https://github.com/rails-engine/role_core/blob/master/test/dummy/app/views/roles/_form.html.erb).
+and relates [view](https://github.com/rails-engine/role_core/blob/master/test/dummy/app/views/roles/_form.html.erb) for details.
 
 ## Demo
 
-The dummy app shows a simple multiple roles with CanCanCan integration includes management UI.
+The dummy app shows a simple multiple roles with CanCanCan integration including a management UI.
 
 Clone the repository.
 
