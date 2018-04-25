@@ -11,7 +11,7 @@ RoleCore.permission_set_class.draw do
   #   permission :foo, default: true # `default: true` means grant to user by default
   #   permission :bar
   #
-  # You can also group permissions using `group`:
+  # You can also group permissions by using `group`:
   #
   #   group :project do
   #     permission :create
@@ -36,7 +36,7 @@ RoleCore.permission_set_class.draw do
   #     permission :destroy, model_name: 'Plan'
   #   end
   #
-  # That will transfer to CanCanCan's abilities (if user has these permissions),
+  # That will translate to CanCanCan's abilities (if user has these permissions),
   # the permission's name will be the action:
   #
   #   can :create, Project
