@@ -1,13 +1,14 @@
 RoleCore
 ====
 
-RoleCore is a Rails engine providing essential industry of Role-based access control.
+RoleCore is a Rails engine which could provide essential industry of Role-based access control.
 
 <img width="550" alt="2018-03-12 10 12 21" src="https://user-images.githubusercontent.com/5518/37262401-e6c9d604-25dd-11e8-849d-7f7d923d5f18.png">
 
-It's only provides an ability to define permissions and a premade Role model,
-and it's not handle the authentication or authorization,
-you need to do this by yourself or integrate with CanCanCan or Pundit.
+It's only provides the ability to define permissions and pre-made Role model.
+
+In addition, it's not handle the authentication or authorization,
+you should integrate with CanCanCan, Pundit or other solutions by yourself.
 
 ## Installation
 
@@ -58,9 +59,9 @@ In addition, there also includes a directive about how to integrate with CanCanC
 
 ### Hook up to application
 
-For maximum customizibility, you need to hooking up role(s) to your user model by yourself.
+In order to obtain maximum customability, you need to hooking up role(s) to your user model by yourself.
 
-#### For a user who has single role
+#### For User who has single role
 
 ##### Create `one-to-many` relationship between Role and User
 
@@ -127,7 +128,7 @@ user.permissions.project.read?
 
 _Keep in mind: fetching `role` will made a SQL query, you may need eager loading to avoid N+1 problem in some cases._
 
-#### For a user who has multiple roles
+#### For User who has multiple roles
 
 ##### Create `many-to-many` relationship between Role and User
 

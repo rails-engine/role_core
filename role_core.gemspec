@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.authors     = ["jasl"]
   s.email       = ["jasl9187@hotmail.com"]
   s.homepage    = "https://github.com/rails-engine/role_core"
-  s.summary     = "A Rails engine providing essential industry of Role-based access control"
-  s.description = "A Rails engine providing essential industry of Role-based access control"
+  s.summary     = "RoleCore is a Rails engine which could provide essential industry of Role-based access control."
+  s.description = "RoleCore is a Rails engine which could provide essential industry of Role-based access control."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
