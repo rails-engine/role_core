@@ -23,8 +23,12 @@ gem "puma"
 gem "pry-rails"
 # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 gem "web-console"
+gem "listen", ">= 3.0.5", "< 3.2"
 # Call "byebug" anywhere in the code to stop execution and get a debugger console
 gem "pry-byebug"
+
+gem "better_errors"
+gem "binding_of_caller"
 
 # To support ES6
 gem "sprockets", "~> 4.0.0.beta4"

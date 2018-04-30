@@ -15,3 +15,4 @@ en:
         destroy: Destroy task
         update: Edit task
         update_my_own: Edit my own task
+        destroy_my_own: Destory my own task

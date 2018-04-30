@@ -19,11 +19,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    if can? :update, @task
-      authorize! :update, @task
-    else
-      authorize! :update_my_own, @task
-    end
+    authorize! :update, @task
   end
 
   # POST /tasks
@@ -51,6 +47,8 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   def destroy
+    authorize! :destroy, @task
+
     @task.destroy
     redirect_to project_tasks_url(@project), notice: "Task was successfully destroyed."
   end

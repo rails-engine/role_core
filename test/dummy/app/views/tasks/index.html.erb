@@ -22,7 +22,7 @@
           <td><%= task.title %></td>
           <td><%= task.user&.name %></td>
           <td>
-            <% if can?(:update, task) || can?(:update_my_own, task) %>
+            <% if can? :update, task %>
               <%= link_to 'Edit', edit_project_task_path(@project, task) %> |
             <% end %>
 
