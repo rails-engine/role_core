@@ -20,6 +20,10 @@ module RoleCore
         :role_core
       end
 
+      def use_relative_model_naming?
+        true
+      end
+
       def permission_class
         @permission_class || RoleCore.permission_class
       end

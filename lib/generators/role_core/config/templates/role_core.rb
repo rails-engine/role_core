@@ -42,11 +42,11 @@ RoleCore.permission_set_class.draw do
   #   can :create, Project
   #   can :destroy, Plan
   #
-  # You can pass `priority` argument to `permission`
+  # You can pass `_priority` argument to `permission`
   #
   #   group :project, model_name: "Project" do
   #     permission :read_public,
-  #     permission :read, priority: 1
+  #     permission :read, _priority: 1
   #   end
   #
   # That will made 'read' prior than `read_public`.

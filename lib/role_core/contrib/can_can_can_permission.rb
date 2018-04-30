@@ -4,7 +4,7 @@ module RoleCore
   class CanCanCanPermission < RoleCore::Permission
     attr_reader :action, :options
 
-    def initialize(name, priority: 0, **options, &block)
+    def initialize(name, _namespace: [], _priority: 0, **options, &block)
       super
 
       @model = options[:model] || options.fetch(:model_name).constantize
