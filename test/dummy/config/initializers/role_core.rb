@@ -6,9 +6,6 @@ require "role_core/contrib/can_can_can_permission"
 RoleCore.permission_class = RoleCore::CanCanCanPermission
 
 RoleCore.permission_set_class.draw do
-  permission :foo, _callable: false
-  permission :bar, _callable: false
-
   group :project, model_name: "Project" do
     permission :create, default: true
     permission :destroy
@@ -28,6 +25,11 @@ RoleCore.permission_set_class.draw do
       end
     end
   end
+
+  # These (under the comment) are not in use, just for demo
+
+  permission :foo, _callable: false
+  permission :bar, _callable: false
 
   group :task, _callable: false do
     permission :read
