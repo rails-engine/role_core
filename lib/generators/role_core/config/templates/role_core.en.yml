@@ -1,6 +1,7 @@
 en:
   role_core:
     models: # Defined by `group` place here
+#      global: Global # The top-level
 #      project: Projects
 #      project/task: Tasks # A nested group
     attributes:

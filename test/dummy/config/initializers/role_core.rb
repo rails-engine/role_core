@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+# YOU NEED TO RESTART APP AFTER CHANGING THIS FILE !!!
+
 require "role_core/contrib/can_can_can_permission"
 RoleCore.permission_class = RoleCore::CanCanCanPermission
 
 RoleCore.permission_set_class.draw do
+  permission :foo, _callable: false
+  permission :bar, _callable: false
+
   group :project, model_name: "Project" do
     permission :create, default: true
     permission :destroy
@@ -22,5 +27,12 @@ RoleCore.permission_set_class.draw do
         task.user_id == user.id
       end
     end
+  end
+
+  group :task, _callable: false do
+    permission :read
+    permission :create, default: true
+    permission :destroy
+    permission :update
   end
 end.finalize!

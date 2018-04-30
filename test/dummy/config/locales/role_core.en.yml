@@ -1,9 +1,14 @@
 en:
   role_core:
     models:
+      global: Common
       project: Projects
       project/task: Tasks
+      task: (Not in use) Tasks
     attributes:
+      global:
+        foo: (Not in use) Foo
+        bar: (Not in use) Bar
       project:
         create: New project
         destroy: Destroy project
@@ -16,3 +21,8 @@ en:
         update: Edit task
         update_my_own: Edit my own task
         destroy_my_own: Destroy my own task
+      task:
+        read: Show
+        create: New
+        destroy: Destroy
+        update: Edit

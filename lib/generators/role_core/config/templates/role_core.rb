@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# YOU NEED TO RESTART APP AFTER CHANGING THIS FILE
+
 # Uncomment below if you want to integrate with CanCanCan
 #
 #   require "role_core/contrib/can_can_can_permission"
@@ -66,5 +68,10 @@ RoleCore.permission_set_class.draw do
   # you can pass `action` argument to override it.
   #
   #   permission :read_public, action: :read, is_public: true
+  #
+  # For some reason, you won't interpret the permission to CanCanCan,
+  # you can set `_callable: false` to `permission` or `group`
+  #
+  #   permission :read, _callable: false
   #
 end.finalize! # Call `finalize!` to freezing the definition, that's optional.

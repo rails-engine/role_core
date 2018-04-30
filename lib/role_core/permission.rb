@@ -2,12 +2,13 @@
 
 module RoleCore
   class Permission
-    attr_reader :name, :namespace, :priority
+    attr_reader :name, :namespace, :priority, :callable
 
-    def initialize(name, _namespace: [], _priority: 0, **options, &block)
+    def initialize(name, _namespace: [], _priority: 0, _callable: false, **options, &block)
       @name = name
       @namespace = _namespace
       @priority = _priority
+      @callable = _callable
     end
 
     def call(context, *)
