@@ -296,22 +296,22 @@ Open your User model:
   Add a delegate to User model:
 
   ```ruby
-  delegate :permitted_permissions, to: :role
+  delegate :computed_permissions, to: :role
   ```
 
 - For a user who has multiple roles:
 
-  Add a `permitted_permissions` public method to User model:
+  Add a `computed_permissions` public method to User model:
 
   ```ruby
-  def permitted_permissions
-    roles.map(&:permitted_permissions).reduce(RoleCore::ComputedPermissions.new, &:concat)
+  def computed_permissions
+    roles.map(&:computed_permissions).reduce(RoleCore::ComputedPermissions.new, &:concat)
   end
   ```
 
-Open `app/models/ability.rb`, add `user.permitted_permissions.call(self, user)` to `initialize` method.
+Open `app/models/ability.rb`, add `user.computed_permissions.call(self, user)` to `initialize` method.
 
-You can check RoleCore's Demo (see below) for better understanding.
+You can check dummy app for better understanding.
 
 ### Management UI
 

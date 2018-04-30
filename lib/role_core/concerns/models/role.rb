@@ -9,7 +9,7 @@ module RoleCore::Concerns
         validates :name,
                   presence: true
 
-        delegate :permitted_permissions, to: :permissions
+        delegate :computed_permissions, to: :permissions
 
         serialize :permissions, RoleCore.permission_set_class
       end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    role_core (0.0.14)
+    role_core (0.0.15)
       options_model (~> 0)
       rails (>= 4.2, < 6.0)
 

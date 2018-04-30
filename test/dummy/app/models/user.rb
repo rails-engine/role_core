@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def permitted_permissions
-    roles.map(&:permitted_permissions).reduce(RoleCore::ComputedPermissions.new, &:concat)
+  def computed_permissions
+    roles.map(&:computed_permissions).reduce(RoleCore::ComputedPermissions.new, &:concat)
   end
 end

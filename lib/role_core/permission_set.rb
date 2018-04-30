@@ -6,10 +6,10 @@ module RoleCore
       attributes.select { |_, v| v }.keys
     end
 
-    def permitted_permissions(include_nested: true)
+    def computed_permissions(include_nesting: true)
       permissions = self.class.registered_permissions.slice(*permitted_permission_names).values
-      if include_nested && nested_attributes.any?
-        permissions.concat nested_attributes.values.map(&:permitted_permissions).flatten!
+      if include_nesting && nested_attributes.any?
+        permissions.concat nested_attributes.values.map(&:computed_permissions).flatten!
       end
 
       ComputedPermissions.new(permissions)
