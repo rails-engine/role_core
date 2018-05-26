@@ -285,6 +285,33 @@ user.can? { |permissions| permissions.project.read? }
 
 _Keep in mind: fetching `roles` will made a SQL query, you may need eager loading to avoid N+1 problem in some cases._
 
+### Integrate with Pundit
+
+Just call permissions' method (see `checking permission` above) in Pundit's policy.
+
+e.g:
+
+```ruby
+class PostPolicy
+  attr_reader :user, :post
+
+  def initialize(user, post)
+    @user = user
+    @post = post
+  end
+
+  def update?
+    user.permissions.post.update?
+  end
+  
+  def update_my_own?
+    return true if user.permissions.post.update?
+    return unless user.permissions.post.update_my_own?
+    post.author == user
+  end
+end
+```
+
 ### Integrate with CanCanCan
 
 Open `config/initializers/role_core.rb`, uncomment CanCanCan integration codes and follows samples to define permissions for CanCanCan
