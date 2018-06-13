@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    role_core (0.0.19)
+    role_core (0.0.20)
       options_model (~> 0)
       rails (>= 4.2, < 6.0)
 
@@ -68,7 +68,7 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.7.1)
     execjs (2.7.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)
@@ -167,7 +167,7 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.10)
+    uglifier (4.1.11)
       execjs (>= 0.3.0, < 3)
     web-console (3.6.2)
       actionview (>= 5.0)
@@ -200,4 +200,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
