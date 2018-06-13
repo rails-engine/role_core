@@ -8,7 +8,7 @@ module RoleCore
       super
       return unless _callable
 
-      @model = options[:model] || options.fetch(:model_name).constantize
+      @model_name = options[:model_name]
       @action = options[:action] || name
       @options = options.except(:model, :model_name, :action)
       @block = block
@@ -17,10 +17,11 @@ module RoleCore
     def call(context, *args)
       return unless callable
 
+      model = @model_name.constantize
       if block_attached?
-        context.can @action, @model, &@block.curry[*args]
+        context.can @action, model, &@block.curry[*args]
       else
-        context.can @action, @model, @options
+        context.can @action, model, @options
       end
     end
 
