@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# YOU NEED TO RESTART APP AFTER CHANGING THIS FILE
+# Be sure to restart your server when you modify this file.
 
 # Uncomment below if you want to integrate with CanCanCan
 #
