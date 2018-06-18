@@ -68,6 +68,8 @@ and can be used with OO-style, for example: `role.permissions.project.create?`
 
 There also support permission groups, and groups support nesting.
 
+**You don't need to any migration when you changing definitions.**
+
 I18n is supported too.
 
 In fact, the essence of permissions is Hash, keys are permissions, and values are booleans. so computing of permissions with many roles, can be understood as computing of Hashes.
@@ -344,6 +346,54 @@ You can check dummy app for better understanding.
 
 See [RolesController in dummy app](https://github.com/rails-engine/role_core/blob/master/test/dummy/app/controllers/roles_controller.rb)
 and relates [view](https://github.com/rails-engine/role_core/blob/master/test/dummy/app/views/roles/_form.html.erb) for details.
+
+## Hacking
+
+RoleCore is a Rails engine, and following [the official best practice](http://guides.rubyonrails.org/engines.html#overriding-models-and-controllers), so you can  extend RoleCore by the article suggests.
+
+### Integrate to existing role model
+
+For some reason, you want to use RoleCore's ability and keeping use your own role model, e.g: integrate with [rolify](https://github.com/RolifyCommunity/rolify).
+
+You can archive this goal by:
+
+- Modify the migration file which RoleCore generated, changing the role table name
+- Add `include RoleCore::Concerns::Models::Role` to your role model
+
+*Note: If you want another column name or there's no name in your role model, you need to lookup `RoleCore::Concerns::Models::Role` source code, copy and modify to fit your needs*
+
+### Dynamic permissions
+
+By design, RoleCore is for static permissions, but dynamic permissions is easy to support.
+
+The key is `RoleCore::PermissionSet#derive`, that will generate a new anonymous sub-class of `PermissionSet`.
+
+There's a example:
+
+- Design a model to persisting dynamic permissions, e.g `DynamicPermission(id: bigint, name: string, default: bool)`
+- Add `dynamic_permissions` column (`text` type) to Role model to persisting dynamic permissions' configuration, and in your model `serialize :dynamic_permissions, Hash`
+- Generate dynamic permissions set in runtime
+  ```ruby
+  # Create a new permission set to containerize dynamic permissions
+  dynamic_permission_set_class = PermissionSet.derive "Dynamic" # "Dynamic" can be named to other but must be a valid Ruby class name, that's a hacking for ActiveModel::Naming
+
+  # Fetching dynamic permissions
+  dynamic_permissions = DynamicPermission.all
+
+  # Mapping dynamic permissions to permission set
+  dynamic_permission_set_class.draw do
+    dynamic_permissions.each do |p|
+      permission p.name, default: p.default
+    end
+  end
+  ```
+- Create a instance of this dynamic permission set
+  ```ruby
+  dynamic_permissions = dynamic_permission_set_class.new(role.dynamic_permissions)
+  ```
+- You can use the `dynamic_permissions` now
+
+Rails' `serialize` is static so you must do serialize and deserialize manually, you can wrap these logic into model.
 
 ## Contributing
 
