@@ -375,7 +375,10 @@ There's a example:
 - Generate dynamic permissions set in runtime
   ```ruby
   # Create a new permission set to containerize dynamic permissions
-  dynamic_permission_set_class = PermissionSet.derive "Dynamic" # "Dynamic" can be named to other but must be a valid Ruby class name, that's a hacking for ActiveModel::Naming
+  # `"Dynamic"` can be named to other but must be a valid Ruby class name, 
+  # that's a hacking for `ActiveModel::Naming`,
+  # and can be used as I18n key, in this case, the key is `role_core/models/dynamic`.
+  dynamic_permission_set_class = PermissionSet.derive "Dynamic"
 
   # Fetching dynamic permissions
   dynamic_permissions = DynamicPermission.all

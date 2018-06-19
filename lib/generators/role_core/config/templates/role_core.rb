@@ -2,6 +2,9 @@
 
 # Be sure to restart your server when you modify this file.
 
+# For I18n, see `config/locales/role_core.en.yml` for details which followed the rule of ActiveRecord's I18n,
+# See <http://guides.rubyonrails.org/i18n.html#translations-for-active-record-models>.
+
 # Uncomment below if you want to integrate with CanCanCan
 #
 #   require "role_core/contrib/can_can_can_permission"
