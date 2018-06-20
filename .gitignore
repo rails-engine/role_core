@@ -17,6 +17,10 @@
 /test/dummy/log/*.log
 /test/dummy/tmp/
 
+# Ignore uploaded files in development
+/test/dummy/storage/*
+!/test/dummy/storage/.keep
+
 pkg/
 .byebug_history
 
