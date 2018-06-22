@@ -21,7 +21,7 @@ module RoleCore
         raise ArgumentError, "#{klass} should be sub-class of #{PermissionSet}."
       end
 
-      @permission_set_class = klass
+      @permission_set_class = klass.derive "Global"
     end
 
     def permission_class
