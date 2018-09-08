@@ -42,3 +42,6 @@ gem "jquery-rails"
 gem "bulma-rails", "~> 0.5"
 
 gem "cancancan"
+
+gem "rubocop"
+gem "rubocop-rails_config"

@@ -1,5 +1,5 @@
 inherit_gem:
-  rubocop-rails:
+  rubocop-rails_config:
     - config/rails.yml
 
 AllCops:
