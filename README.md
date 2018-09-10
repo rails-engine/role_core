@@ -47,7 +47,7 @@ Open your browser, and visit `http://localhost:3000`
 
 The essence of RBAC is the role, despite your application, there are many possibilities: single-role, multi-roles, extendable-role and the role may associate to different kinds of resources (e.g: users and groups)
 
-RoleCore provides a essential definition of Role,
+RoleCore provides an essential definition of Role,
 you have to add association to adapt to your application,
 for example:
 
@@ -368,7 +368,7 @@ By design, RoleCore is for static permissions, but dynamic permissions is easy t
 
 The key is `RoleCore::PermissionSet#derive`, that will generate a new anonymous sub-class of `PermissionSet`.
 
-There's a example:
+Here's an example:
 
 - Design a model to persisting dynamic permissions, e.g `DynamicPermission(id: bigint, name: string, default: bool)`
 - Add `dynamic_permissions` column (`text` type) to Role model to persisting dynamic permissions' configuration, and in your model `serialize :dynamic_permissions, Hash`
