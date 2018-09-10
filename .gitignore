@@ -8,24 +8,26 @@
 .bundle/
 
 # Ignore the default SQLite database.
-/test/dummy/db/*.sqlite3
-/test/dummy/db/*.sqlite3-journal
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-!/test/dummy/log/.keep
-!/test/dummy/tmp/.keep
-/test/dummy/log/*.log
-/test/dummy/tmp/
+log/*.log
+!test/dummy/log/.keep
+!test/dummy/tmp/.keep
+test/dummy/log/*.log
+test/dummy/tmp/
 
 # Ignore uploaded files in development
-/test/dummy/storage/*
-!/test/dummy/storage/.keep
+!test/dummy/storage/.keep
+test/dummy/storage/*
 
 pkg/
 .byebug_history
 
-/test/dummy/public/packs
 node_modules/
+test/dummy/public/packs
+test/dummy/node_modules/
 yarn-error.log
 
 *.gem
