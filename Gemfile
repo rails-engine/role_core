@@ -34,7 +34,7 @@ gem "binding_of_caller"
 # To support ES6
 gem "sprockets", "~> 4.0.0.beta4"
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+gem "sassc-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 
