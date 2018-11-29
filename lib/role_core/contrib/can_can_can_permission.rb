@@ -9,20 +9,23 @@ module RoleCore
       return unless _callable
 
       @model_name = options[:model_name]
+      @subject = options[:subject]
       @action = options[:action] || name
-      @options = options.except(:model, :model_name, :action)
+      @options = options.except(:model, :model_name, :subject, :action)
       @block = block
     end
 
     def call(context, *args)
       return unless callable
 
-      model = @model_name.constantize
+      subject = @subject || @model_name.constantize
       if block_attached?
-        context.can @action, model, &@block.curry[*args]
+        context.can @action, subject, &@block.curry[*args]
       else
-        context.can @action, model, @options
+        context.can @action, subject, @options
       end
+    rescue NameError
+      raise "You must provide a valid model name."
     end
 
     def block_attached?
