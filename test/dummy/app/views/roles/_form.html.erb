@@ -20,7 +20,10 @@
       <%= f.text_field :name, id: :role_name, class: 'input', required: 'required' %>
     </p>
   </div>
-
+  
+  <!-- one management UI per group -->
+  <!-- <%# f.hidden_field :group, values: "#{group_name}" %> -->
+  <!-- <%#= render partial: "permissions", locals: {f: f, name: :permissions_attributes, permissions: role.permissions[:"#{group_name}"]} %> -->
   <%= render partial: "permissions", locals: {f: f, name: :permissions_attributes, permissions: role.permissions} %>
 
   <div class="field is-grouped">
