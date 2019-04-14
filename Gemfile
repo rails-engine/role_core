@@ -16,7 +16,8 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem "sqlite3", "~> 1.3.6"
+gem "rails", "~> 6.0.0.beta3"
+gem "sqlite3"
 
 # Use Puma as the app server
 gem "puma"
@@ -27,9 +28,6 @@ gem "web-console"
 gem "listen", ">= 3.0.5", "< 3.2"
 # Call "byebug" anywhere in the code to stop execution and get a debugger console
 gem "pry-byebug"
-
-gem "better_errors"
-gem "binding_of_caller"
 
 # To support ES6
 gem "sprockets", "~> 4.0.0.beta4"
@@ -46,3 +44,4 @@ gem "cancancan"
 
 gem "rubocop"
 gem "rubocop-rails_config"
+gem "rubocop-performance"

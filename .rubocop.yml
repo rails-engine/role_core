@@ -1,9 +1,11 @@
+require: rubocop-performance
+
 inherit_gem:
   rubocop-rails_config:
     - config/rails.yml
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - bin/**/*
     - test/dummy/bin/**/*
