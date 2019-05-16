@@ -14,8 +14,7 @@ class RolesController < ApplicationController
   end
 
   # GET /roles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /roles
   def create
@@ -44,13 +43,14 @@ class RolesController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_role
-    @role = Role.find(params[:id])
-  end
 
-  # Only allow a trusted parameter "white list" through.
-  def role_params
-    params.require(:role).permit(:name, permissions_attributes: {})
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_role
+      @role = Role.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def role_params
+      params.require(:role).permit(:name, permissions_attributes: {})
+    end
 end

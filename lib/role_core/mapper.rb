@@ -21,7 +21,7 @@ module RoleCore
       constraints[:_namespace] << name
 
       sub_permission_set_class =
-        if @set.nested_classes.has_key?(name)
+        if @set.nested_classes.key?(name)
           @set.nested_classes[name]
         else
           klass_name = constraints[:_namespace].map { |n| n.to_s.classify }.join("::")

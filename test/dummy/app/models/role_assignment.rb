@@ -5,5 +5,5 @@ class RoleAssignment < ApplicationRecord
   belongs_to :role
 
   validates :role,
-            uniqueness: {scope: :user}
+            uniqueness: { scope: :user }
 end

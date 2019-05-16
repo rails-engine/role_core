@@ -55,17 +55,17 @@ class TasksController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_project
-    @project = Project.find(params[:project_id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
 
-  def set_task
-    @task = @project.tasks.find(params[:id])
-  end
+    def set_task
+      @task = @project.tasks.find(params[:id])
+    end
 
-  # Only allow a trusted parameter "white list" through.
-  def task_params
-    params.require(:task).permit(:title)
-  end
+    # Only allow a trusted parameter "white list" through.
+    def task_params
+      params.require(:task).permit(:title)
+    end
 end

@@ -17,9 +17,7 @@ module RoleCore
     end
 
     def permission_set_class=(klass)
-      unless klass && klass < PermissionSet
-        raise ArgumentError, "#{klass} should be sub-class of #{PermissionSet}."
-      end
+      raise ArgumentError, "#{klass} should be sub-class of #{PermissionSet}." unless klass && klass < PermissionSet
 
       @permission_set_class = klass.derive "Global"
     end
@@ -29,9 +27,7 @@ module RoleCore
     end
 
     def permission_class=(klass)
-      unless klass && klass < Permission
-        raise ArgumentError, "#{klass} should be sub-class of #{Permission}."
-      end
+      raise ArgumentError, "#{klass} should be sub-class of #{Permission}." unless klass && klass < Permission
 
       @permission_class = klass
     end

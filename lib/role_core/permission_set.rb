@@ -8,9 +8,7 @@ module RoleCore
 
     def computed_permissions(include_nesting: true)
       permissions = self.class.registered_permissions.slice(*permitted_permission_names).values
-      if include_nesting && nested_attributes.any?
-        permissions.concat nested_attributes.values.map(&:computed_permissions).flatten!
-      end
+      permissions.concat nested_attributes.values.map(&:computed_permissions).flatten! if include_nesting && nested_attributes.any?
 
       ComputedPermissions.new(permissions)
     end
@@ -29,17 +27,13 @@ module RoleCore
       end
 
       def permission_class=(klass)
-        unless klass && klass < Permission
-          raise ArgumentError, "#{klass} should be sub-class of #{Permission}."
-        end
+        raise ArgumentError, "#{klass} should be sub-class of #{Permission}." unless klass && klass < Permission
 
         @permission_class = klass
       end
 
       def draw(**constraints, &block)
-        unless block_given?
-          raise ArgumentError, "must provide a block"
-        end
+        raise ArgumentError, "must provide a block" unless block_given?
 
         Mapper.new(self, constraints).instance_exec(&block)
 

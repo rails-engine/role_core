@@ -26,9 +26,9 @@ module RoleCore
 
     private
 
-    def regroup!
-      @permissions.uniq!
-      @permissions.sort_by!(&:priority)
-    end
+      def regroup!
+        @permissions.uniq!
+        @permissions.sort_by!(&:priority)
+      end
   end
 end

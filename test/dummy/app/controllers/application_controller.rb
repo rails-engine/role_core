@@ -5,18 +5,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-    @_current_user ||=
+    def current_user
       if session[:current_user_id].present?
-        User.where(id: session[:current_user_id]).first
-      else
-        nil
+        @_current_user ||=
+          User.where(id: session[:current_user_id]).first
       end
-  end
-
-  def require_signed_in
-    unless current_user
-      redirect_to users_url
     end
-  end
+
+    def require_signed_in
+      redirect_to users_url unless current_user
+    end
 end
