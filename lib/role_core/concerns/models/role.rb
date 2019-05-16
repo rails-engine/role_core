@@ -15,7 +15,7 @@ module RoleCore::Concerns
       end
 
       def permissions_attributes=(value)
-        permissions.update_attributes value
+        self[:permissions].update_attributes value
       end
     end
   end
