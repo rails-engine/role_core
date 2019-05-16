@@ -50,6 +50,11 @@ module RoleCore
         attribute name, :boolean, default: default
         registered_permissions[name] = permission_class.new name, options, &block
       end
+
+      PERMITTED_ATTRIBUTE_CLASSES = [Symbol].freeze
+      def permitted_attribute_classes
+        PERMITTED_ATTRIBUTE_CLASSES
+      end
     end
   end
 end
