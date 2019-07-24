@@ -44,3 +44,4 @@ gem "cancancan"
 
 gem "rubocop"
 gem "rubocop-performance"
+gem "rubocop-rails"

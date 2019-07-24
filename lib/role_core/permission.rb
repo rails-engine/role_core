@@ -15,9 +15,7 @@ module RoleCore
       raise NotImplementedError
     end
 
-    def hash
-      instance_values.hash
-    end
+    delegate :hash, to: :instance_values
 
     def ==(other)
       return false unless other.is_a?(RoleCore::Permission)
