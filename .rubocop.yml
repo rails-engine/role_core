@@ -16,7 +16,7 @@ Performance:
 Rails:
   Enabled: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 150
 
 Metrics/MethodLength:
