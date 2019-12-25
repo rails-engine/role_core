@@ -32,7 +32,7 @@ module RoleCore
         @permission_class = klass
       end
 
-      def draw(**constraints, &block)
+      def draw(constraints = {}, &block)
         raise ArgumentError, "must provide a block" unless block_given?
 
         Mapper.new(self, constraints).instance_exec(&block)
@@ -44,11 +44,11 @@ module RoleCore
         @registered_permissions ||= ActiveSupport::HashWithIndifferentAccess.new
       end
 
-      def register_permission(name, default = false, **options, &block)
+      def register_permission(name, default = false, options = {}, &block)
         raise ArgumentError, "`name` can't be blank" if name.blank?
 
         attribute name, :boolean, default: default
-        registered_permissions[name] = permission_class.new name, options, &block
+        registered_permissions[name] = permission_class.new name, **options, &block
       end
 
       PERMITTED_ATTRIBUTE_CLASSES = [Symbol].freeze

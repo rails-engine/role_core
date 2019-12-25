@@ -13,21 +13,16 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use a debugger
-# gem 'byebug', group: [:development, :test]
-
 gem "rails", "~> 6.0.0"
 gem "sqlite3"
 
 # Use Puma as the app server
 gem "puma"
-# For better console experience
-gem "pry-rails"
 # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 gem "listen", ">= 3.0.5", "< 3.2"
 gem "web-console", group: :development
 # Call "byebug" anywhere in the code to stop execution and get a debugger console
-gem "pry-byebug"
+gem "byebug", group: [:development, :test]
 
 # To support ES6
 gem "sprockets", "~> 4.0.0.beta4"

@@ -2,7 +2,7 @@
 
 module RoleCore
   class Mapper
-    def initialize(set, **constraints) #:nodoc:
+    def initialize(set, constraints = {}) #:nodoc:
       @constraints = constraints
       @constraints[:_namespace] ||= []
       @set = set
@@ -13,7 +13,7 @@ module RoleCore
       self
     end
 
-    def group(name, **constraints, &block)
+    def group(name, constraints = {}, &block)
       raise ArgumentError, "`name` can't be blank" if name.blank?
       raise ArgumentError, "must provide a block" unless block_given?
 
