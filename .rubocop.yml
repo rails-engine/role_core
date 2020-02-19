@@ -57,12 +57,6 @@ Rails/RefuteMethods:
 Style/AndOr:
   Enabled: true
 
-# Do not use braces for hash literals when they are the last argument of a
-# method call.
-Style/BracesAroundHashParameters:
-  Enabled: true
-  EnforcedStyle: context_dependent
-
 # Align `when` with `case`.
 Layout/CaseIndentation:
   Enabled: true
@@ -104,6 +98,17 @@ Layout/FirstArgumentIndentation:
 
 # Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
 Style/HashSyntax:
+  Enabled: true
+
+# Do not use braces for hash literals when they are the last argument of a
+# method call.
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
   Enabled: true
 
 # Method definitions after `private` or `protected` isolated calls need one
