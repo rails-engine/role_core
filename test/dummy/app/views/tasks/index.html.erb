@@ -4,6 +4,7 @@
       <% if can? :create, Task %>
         <%= link_to 'New task', new_project_task_path(@project), class: 'button is-primary' %>
       <% end %>
+      <%= link_to 'Back', projects_path, class: 'button is-link' %>
     </p>
 
     <table class="table is-fullwidth">

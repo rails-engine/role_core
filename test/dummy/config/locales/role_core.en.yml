@@ -4,11 +4,10 @@ en:
       global: Common
       project: Projects
       project/task: Tasks
-      task: (Not in use) Tasks
+      task: (Just a stub for demo) Tasks
     attributes:
       global:
-        foo: (Not in use) Foo
-        bar: (Not in use) Bar
+        super: Super
       project:
         create: New project
         destroy: Destroy project

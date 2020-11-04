@@ -29,10 +29,9 @@ RoleCore.permission_set_class.draw do
     end
   end
 
-  # These (under the comment) are not in use, just for demo
+  permission :super, action: :manage, subject: :all # this equal to `can :manage, :all`
 
-  permission :foo, _callable: false
-  permission :bar, _callable: false
+  # These (under the comment) are not in use, just for demo
 
   group :task, _callable: false do
     permission :read
