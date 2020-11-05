@@ -76,8 +76,8 @@ In fact, the essence of permissions is Hash, keys are permissions, and values ar
 
 ### Management UI
 
-Building a management UI is difficult, 
-but virtual model technique will translates permissions to a virtual model's (a class that conforms to ActiveModel) attributes, 
+Building a management UI is difficult,
+but virtual model technique will translates permissions to a virtual model's (a class that conforms to ActiveModel) attributes,
 and groups will translates to nested virtual models,
 that means you can use all Rails view helpers including the mighty form builder,
 and can benefit to Strong Parameter.
@@ -305,7 +305,7 @@ class PostPolicy
   def update?
     user.permissions.post.update?
   end
-  
+
   def update_my_own?
     return true if user.permissions.post.update?
     return unless user.permissions.post.update_my_own?
@@ -339,6 +339,20 @@ Open your User model:
   ```
 
 Open `app/models/ability.rb`, add `user.computed_permissions.call(self, user)` to `initialize` method.
+
+```ruby
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    # Apply RoleCole managing permissions
+    user.computed_permissions.call(self, user)
+
+    # You still can add other permissions
+    can :read_public, :all
+  end
+end
+```
 
 You can check dummy app for better understanding.
 
@@ -375,7 +389,7 @@ Here's an example:
 - Generate dynamic permissions set in runtime
   ```ruby
   # Create a new permission set to containerize dynamic permissions
-  # `"Dynamic"` can be named to other but must be a valid Ruby class name, 
+  # `"Dynamic"` can be named to other but must be a valid Ruby class name,
   # that's a hacking for `ActiveModel::Naming`,
   # and can be used as I18n key, in this case, the key is `role_core/models/dynamic`.
   dynamic_permission_set_class = PermissionSet.derive "Dynamic"
