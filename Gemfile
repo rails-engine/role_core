@@ -17,7 +17,7 @@ gem "rails", "~> 6.0.0"
 gem "sqlite3"
 
 # Use Puma as the app server
-gem "puma", "< 5"
+gem "puma", "< 6"
 # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 gem "listen", ">= 3.0.5", "< 3.2"
 gem "web-console", group: :development
