@@ -2,7 +2,7 @@
 
 module RoleCore
   class Mapper
-    def initialize(set, constraints = {}) #:nodoc:
+    def initialize(set, constraints = {}) # :nodoc:
       @constraints = constraints
       @constraints[:_namespace] ||= []
       @set = set

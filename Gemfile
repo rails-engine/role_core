@@ -13,19 +13,19 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-gem "rails", "~> 6.0.0"
+gem "rails", "~> 7.0"
 gem "sqlite3"
 
 # Use Puma as the app server
-gem "puma", "< 5"
+gem "puma"
 # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-gem "listen", ">= 3.0.5", "< 3.2"
+gem "listen"
 gem "web-console", group: :development
 # Call "byebug" anywhere in the code to stop execution and get a debugger console
 gem "byebug", group: %i[development test]
 
 # To support ES6
-gem "sprockets", "~> 4.0.0.beta4"
+gem "sprockets"
 # Use SCSS for stylesheets
 gem "sassc-rails"
 # Use Uglifier as compressor for JavaScript assets
