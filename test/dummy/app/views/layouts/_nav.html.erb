@@ -5,6 +5,8 @@
     </div>
     <div class="navbar-end">
       <%= link_to 'Home', root_path, class: "navbar-item #{"is-active" if current_page?(root_path)}" %>
+      <%= link_to 'Permissions', dynamic_permissions_path, class: "navbar-item #{"is-active" if controller_name == "permissions"}" %>
+      <%= link_to 'Teams', teams_path, class: "navbar-item #{"is-active" if controller_name == "teams"}" %>
       <%= link_to 'Users', users_path, class: "navbar-item #{"is-active" if controller_name == "users"}" %>
       <%= link_to 'Roles', roles_path, class: "navbar-item #{"is-active" if %w(roles).include? controller_name}" %>
       <%= link_to 'Projects', projects_path, class: "navbar-item #{"is-active" if %w(projects tasks).include? controller_name}" %>

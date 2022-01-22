@@ -380,37 +380,7 @@ You can archive this goal by:
 
 By design, RoleCore is for static permissions, but dynamic permissions is easy to support.
 
-The key is `RoleCore::PermissionSet#derive`, that will generate a new anonymous sub-class of `PermissionSet`.
-
-Here's an example:
-
-- Design a model to persisting dynamic permissions, e.g `DynamicPermission(id: bigint, name: string, default: bool)`
-- Add `dynamic_permissions` column (`text` type) to Role model to persisting dynamic permissions' configuration, and in your model `serialize :dynamic_permissions, Hash`
-- Generate dynamic permissions set in runtime
-  ```ruby
-  # Create a new permission set to containerize dynamic permissions
-  # `"Dynamic"` can be named to other but must be a valid Ruby class name,
-  # that's a hacking for `ActiveModel::Naming`,
-  # and can be used as I18n key, in this case, the key is `role_core/models/dynamic`.
-  dynamic_permission_set_class = PermissionSet.derive "Dynamic"
-
-  # Fetching dynamic permissions
-  dynamic_permissions = DynamicPermission.all
-
-  # Mapping dynamic permissions to permission set
-  dynamic_permission_set_class.draw do
-    dynamic_permissions.each do |p|
-      permission p.name, default: p.default
-    end
-  end
-  ```
-- Create a instance of this dynamic permission set
-  ```ruby
-  dynamic_permissions = dynamic_permission_set_class.new(role.dynamic_permissions)
-  ```
-- You can use the `dynamic_permissions` now
-
-Rails' `serialize` is static so you must do serialize and deserialize manually, you can wrap these logic into model.
+See [example](test/dummy/app/models/team.rb) in dummy app and relates [view](test/dummy/app/views/teams/_permissions.html.erb) for details.
 
 ## Contributing
 

@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true) do |f| %>
+<%= form_with(model: project) do |f| %>
   <% if project.errors.any? %>
     <article class="message is-danger">
       <div class="message-header">
@@ -17,7 +17,7 @@
   <div class="field">
     <%= f.label :title, class: 'label' %>
     <p class="control">
-      <%= f.text_field :title, id: :user_name, class: 'input', required: 'required' %>
+      <%= f.text_field :title, class: 'input', required: 'required' %>
     </p>
   </div>
 

@@ -1,0 +1,28 @@
+<div class="section">
+  <div class="container">
+    <p content="content">
+      <%= link_to 'New team', new_team_path, class: 'button is-primary' %>
+    </p>
+    <table class="table is-fullwidth">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.id %></td>
+          <td><%= team.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_team_path(team) %> |
+            <%= link_to 'Destroy', team, method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

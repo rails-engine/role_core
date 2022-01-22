@@ -1,0 +1,16 @@
+<%= f.fields_for name, permissions do |ff| %>
+  <div class="field">
+    <label class="label">
+      Permissions
+    </label>
+
+    <p class="control">
+      <% DynamicPermission.find_each do |dp| %>
+        <%= ff.label dp, class: 'checkbox' do %>
+          <%= ff.check_box dp.key, class: 'checkbox' %>
+          <%= dp.name %>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+<% end %>

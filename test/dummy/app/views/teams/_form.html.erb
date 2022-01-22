@@ -1,13 +1,13 @@
-<%= form_with(model: [project, task]) do |f| %>
-  <% if task.errors.any? %>
+<%= form_with(model: team) do |f| %>
+  <% if team.errors.any? %>
     <article class="message is-danger">
       <div class="message-header">
         <p>
-          <%= pluralize(task.errors.count, "error") %> prohibited this form from being saved:
+          <%= pluralize(dynamic_permission.errors.count, "error") %> prohibited this form from being saved:
         </p>
       </div>
       <div class="message-body">
-        <% task.errors.full_messages.each do |message| %>
+        <% dynamic_permission.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </div>
@@ -15,11 +15,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, class: 'label' %>
+    <%= f.label :name, class: 'label' %>
     <p class="control">
-      <%= f.text_field :title, id: :user_name, class: 'input', required: 'required' %>
+      <%= f.text_field :name, class: 'input', required: 'required' %>
     </p>
   </div>
+
+  <%= render partial: "permissions", locals: {f: f, name: :permissions_attributes, permissions: team.permissions} %>
 
   <div class="field is-grouped">
     <p class="control">

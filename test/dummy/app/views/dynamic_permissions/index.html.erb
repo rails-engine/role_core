@@ -1,0 +1,32 @@
+<div class="section">
+  <div class="container">
+    <p content="content">
+      <%= link_to 'New dynamic permission', new_dynamic_permission_path, class: 'button is-primary' %>
+    </p>
+    <table class="table is-fullwidth">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Key</th>
+        <th>Default</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @dynamic_permissions.each do |dynamic_permission| %>
+        <tr>
+          <td><%= dynamic_permission.id %></td>
+          <td><%= dynamic_permission.name %></td>
+          <td><%= dynamic_permission.key %></td>
+          <td><%= dynamic_permission.default? ? "Yes" : "" %></td>
+          <td>
+            <%= link_to 'Edit', edit_dynamic_permission_path(dynamic_permission) %> |
+            <%= link_to 'Destroy', dynamic_permission, method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

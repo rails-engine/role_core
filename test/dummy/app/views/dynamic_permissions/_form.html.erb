@@ -1,0 +1,48 @@
+<%= form_with(model: dynamic_permission) do |f| %>
+  <% if dynamic_permission.errors.any? %>
+    <article class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(dynamic_permission.errors.count, "error") %> prohibited this form from being saved:
+        </p>
+      </div>
+      <div class="message-body">
+        <% dynamic_permission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
+    </article>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, class: 'label' %>
+    <p class="control">
+      <%= f.text_field :name, class: 'input', required: 'required' %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :key, class: 'label' %>
+    <p class="control">
+      <%= f.text_field :key, class: 'input', required: 'required' %>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control">
+      <label class="checkbox">
+        <%= f.check_box :default %>
+        <%= DynamicPermission.human_attribute_name(:default) %>
+      </label>
+    </p>
+  </div>
+
+  <div class="field is-grouped">
+    <p class="control">
+      <%= f.submit class: 'button is-primary' %>
+    </p>
+    <p class="control">
+      <%= link_to 'Back', url_for(:back), class: 'button is-link' %>
+    </p>
+  </div>
+<% end %>

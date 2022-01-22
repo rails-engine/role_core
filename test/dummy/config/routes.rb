@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :teams, except: %i[show]
+  resources :dynamic_permissions, except: %i[show]
   resources :roles, except: %i[show]
   resources :users, except: %i[show]
   resources :projects, except: %i[show] do

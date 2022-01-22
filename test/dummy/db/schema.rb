@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_07_05_175121) do
+ActiveRecord::Schema.define(version: 2022_01_22_193822) do
+
+  create_table "dynamic_permissions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "key", null: false
+    t.boolean "default", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["key"], name: "index_dynamic_permissions_on_key", unique: true
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -45,6 +54,13 @@ ActiveRecord::Schema.define(version: 2017_07_05_175121) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "permissions", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
