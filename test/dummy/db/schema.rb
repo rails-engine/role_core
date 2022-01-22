@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_07_05_175121) do
+ActiveRecord::Schema.define(version: 2022_01_22_081318) do
+
+  create_table "dynamic_permissions", force: :cascade do |t|
+    t.string "group"
+    t.string "name"
+    t.boolean "default"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
