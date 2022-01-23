@@ -22,9 +22,16 @@ class Team < ApplicationRecord
 
     def permission_set_class
       @permission_set_class ||=
-        RoleCore::PermissionSet.derive("DynamicPermissionSet").draw do
-          DynamicPermission.all.each do |dp|
-            permission dp.key, default: dp.default?
+        begin
+          # You MAY need to cache this if you meet N+1 issue here.
+          # Consider caching at app start.
+          # Don't forget to refresh the cache when permission definition changed.
+          dynamic_permissions = DynamicPermission.all
+
+          RoleCore::PermissionSet.derive("DynamicPermissionSet").draw do
+            dynamic_permissions.each do |dp|
+              permission dp.key, default: dp.default?
+            end
           end
         end
     end
