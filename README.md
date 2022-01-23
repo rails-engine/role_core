@@ -138,6 +138,8 @@ $ bin/rails g role_core:model
 Permissions are defined in `config/initializers/role_core.rb`,
 checking it to know how to define permissions.
 
+(If you want to define permissions in runtime, check [Dynamic Permissions](https://github.com/rails-engine/role_core#dynamic-permissions))
+
 In addition, there also includes a directive about how to integrate with CanCanCan.
 
 #### I18n
