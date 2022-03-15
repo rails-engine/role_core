@@ -98,7 +98,13 @@ RoleCore can be working with CanCanCan, Pundit easily and happily.
 Add this line to your Gemfile:
 
 ```ruby
-gem 'role_core'
+gem "role_core"
+```
+
+if your Rails < 7 or met `visit_Psych_Nodes_Alias': Unknown alias: redis (Psych::BadAlias)`, add this line:
+
+```ruby
+gem "psych", "~> 3.3"
 ```
 
 Then execute:
@@ -327,7 +333,7 @@ Open your User model:
   Add a delegate to User model:
 
   ```ruby
-  delegate :computed_permissions, to: :role
+    delegate :computed_permissions, to: :role
   ```
 
 - For a user who has multiple roles:
