@@ -11,7 +11,7 @@ module RoleCore
       @model_name = options[:model_name]
       @subject = options[:subject]
       @action = options[:action] || name
-      @options = options.except(:model, :model_name, :subject, :action)
+      @options = options.except(:model, :model_name, :subject, :action, :_namespace, :_priority, :_callable)
       @block = block
     end
 
