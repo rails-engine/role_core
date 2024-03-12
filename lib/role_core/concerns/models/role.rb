@@ -11,7 +11,7 @@ module RoleCore::Concerns
 
         delegate :computed_permissions, to: :permissions
 
-        serialize :permissions, RoleCore.permission_set_class
+        serialize :permissions, coder: RoleCore.permission_set_class
       end
 
       def permissions_attributes=(value)
