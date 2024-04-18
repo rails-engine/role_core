@@ -21,8 +21,8 @@ RoleCore.permission_set_class.draw do
       permission :destroy, _priority: 1
       permission :update, _priority: 1
       # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/fetching_records.md
-      permission :update_my_own, action: :update, default: true, with_user: true
-      permission :destroy_my_own, action: :destroy, default: true, with_user: true
+      permission :update_my_own, action: :update, default: true, with: :user
+      permission :destroy_my_own, action: :destroy, default: true, with: :user
     end
   end
 
