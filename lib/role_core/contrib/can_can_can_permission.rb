@@ -11,16 +11,19 @@ module RoleCore
       @model_name = options[:model_name]
       @subject = options[:subject]
       @action = options[:action] || name
-      @options = options.except(:model, :model_name, :subject, :action, :_namespace, :_priority, :_callable)
+      @with_user = options[:with_user]
+      @options = options.except(:model, :model_name, :subject, :action, :with_user, :_namespace, :_priority, :_callable)
       @block = block
     end
 
-    def call(context, *args)
+    def call(context, user, *args)
       return unless callable
 
       subject = @subject || @model_name.constantize
       if block_attached?
         context.can @action, subject, &@block.curry[*args]
+      elsif @with_user
+        context.can @action, subject, @options.merge(user: user)
       else
         context.can @action, subject, @options
       end

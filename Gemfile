@@ -13,8 +13,8 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-gem "rails", "~> 7.0"
-gem "sqlite3"
+gem "rails", "~> 7.1"
+gem "sqlite3", "~> 1.4"
 
 # Use Puma as the app server
 gem "puma"

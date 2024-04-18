@@ -20,12 +20,9 @@ RoleCore.permission_set_class.draw do
       permission :create, default: true
       permission :destroy, _priority: 1
       permission :update, _priority: 1
-      permission :update_my_own, action: :update, default: true do |user, task|
-        task.user_id == user.id
-      end
-      permission :destroy_my_own, action: :destroy, default: true do |user, task|
-        task.user_id == user.id
-      end
+      # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/fetching_records.md
+      permission :update_my_own, action: :update, default: true, with_user: true
+      permission :destroy_my_own, action: :destroy, default: true, with_user: true
     end
   end
 
