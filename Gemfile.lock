@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    role_core (0.0.30)
+    role_core (0.0.31)
       activerecord (>= 5, < 9)
       options_model (>= 0.0.15, < 1.0)
 
